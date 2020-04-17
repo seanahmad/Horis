@@ -1,0 +1,12 @@
+.content {
+  width: 100%;
+  max-width: 1024px;
+
+  display: block;
+  margin: 0 auto;
+
+  min-height: calc(100% - #{$header-height});
+
+  padding: 0.5rem;
+  padding-bottom: $footer-height + 0.5rem;
+}

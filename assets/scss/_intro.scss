@@ -1,0 +1,15 @@
+.intro {
+  text-align: center;
+  margin: 1rem;
+  margin-bottom: 2rem;
+
+  &__title {
+    font-size: 3rem;
+    font-weight: lighter;
+  }
+
+  &__subtitle {
+    font-size: 1.25rem;
+    font-weight: regular;
+  }
+}

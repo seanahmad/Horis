@@ -1,0 +1,94 @@
+{# -*- mode: web -*- #}
+{# -*- engine: jinja2 -*- #}
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Horis</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+        <script type="text/javascript" src="/static/main.bundle.js"></script>
+        <script type="text/javascript" src="/static/index.bundle.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="/static/main.bundle.css" />
+    </head>
+    <body>
+        <div id="root">
+            <header class="header">
+                <div class="header__logo">
+                    <a href="/">Horis</a>
+                </div>
+                <nav class="header__nav">
+                    <a class="header__link" href="/">Home</a>
+                </nav>
+            </header>
+
+            <section class="content">
+                <div class="intro">
+                    <h1 class="intro__title">
+                        Predict Horse Racing Results
+                    </h1>
+                    <p class="intro__subtitle">
+                        Horis is an application allowing you to enter details
+                        about a horse race and get predicted result rankings.
+                    </p>
+                </div>
+
+                <h3 class="table-header">Enter Race Info</h3>
+                <div class="table">
+                    <div class="table__row--header table__row">
+                        <div>Horse</div>
+                        <div>Age</div>
+                        <div>Weight (kg)</div>
+                        <div>Driver</div>
+                        <div>Starting Position</div>
+                        <div>Won Last Race</div>
+                        <div>Won Last Three Races</div>
+                    </div>
+
+                    {% include "partials/horse_row.html" %}
+                    {% include "partials/horse_row.html" %}
+                    {% include "partials/horse_row.html" %}
+
+                    <div class="table__row--add table__row">
+                        <button class="button">
+                            <i class="fa fa-plus"></i> Add Another
+                        </button>
+                    </div>
+                </div>
+                <button class="submitform">
+                    Submit <i class="fa fa-arrow-right"></i>
+                </button>
+
+                <div class="results">
+                    <h3 class="table-header">Results</h3>
+                    <div class="table__row--header table__row">
+                        <div>#</div>
+                        <div>Name</div>
+                        <div>Age</div>
+                        <div>Driver</div>
+                        <div>Starting Position</div>
+                        <div>Raw Result</div>
+                    </div>
+
+                    <div class="table results__rows"></div>
+
+                    <button class="clearresults">
+                        Clear <i class="fa fa-broom"></i>
+                    </button>
+                </div>
+            </section>
+
+            <footer class="footer">
+                Copyright &copy; 2020 Efe Mert Demir.
+            </footer>
+        </div>
+
+        <template id="entry-row">
+            {% include "partials/horse_row.html" %}
+        </template>
+    </body>
+</html>

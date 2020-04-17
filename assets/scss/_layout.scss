@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Open Sans", Arial, verdana, sans-serif;
+  font-size: 16px;
+
+  background-color: $background;
+  color: $text;
+}
+
+html,
+body {
+  height: 100%;
+  position: relative;
+}
+
+#root {
+  min-height: 100%;
+  position: relative;
+}
+
+a {
+  color: $secondary-dark;
+  text-decoration: none;
+}
+
+a:hover {
+  color: $secondary-light;
+}

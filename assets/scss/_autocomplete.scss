@@ -1,0 +1,30 @@
+.autocomplete {
+  &:not(:empty) {
+    position: absolute;
+    z-index: 10;
+    margin-top: 0.5rem;
+
+    width: 100%;
+
+    background-color: $background;
+    color: $text;
+
+    border: 1px solid rgba($text, 0.33);
+    border-radius: 4px;
+
+    padding: 0.5rem 0;
+  }
+
+  &__entry {
+    padding: 0.5rem 0.75rem;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover {
+      background-color: rgba($secondary-dark, 0.1);
+    }
+  }
+}

@@ -1,0 +1,22 @@
+.header {
+  background-color: $header-background;
+  color: $header-text;
+  height: $header-height;
+
+  padding: 0.5rem 2rem;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  a {
+    color: $header-text;
+  }
+
+  &__logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+
+    margin-right: 4rem;
+  }
+}

@@ -1,0 +1,11 @@
+.results {
+  display: none;
+
+  &--visible {
+    display: block;
+  }
+
+  .table__row {
+    grid-template-columns: 1fr repeat(5, 3fr);
+  }
+}

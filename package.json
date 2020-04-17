@@ -1,0 +1,38 @@
+{
+  "name": "Horis",
+  "version": "1.0.0",
+  "description": "Horse Race Prediction Project",
+  "repository": "https://github.com/Horse-Race-Prediction-System/Horis",
+  "author": "Efe Mert Demir <efemertdemir@hotmail.com>",
+  "license": "BSD-3",
+  "private": true,
+  "scripts": {
+    "build": "webpack",
+    "watch-assets": "webpack --watch",
+    "watch-server": "uvicorn --reload horis.app:app",
+    "watch": "concurrently -k -n \"Assets,Server\" -p \"[{name}]\" -c \"cyan.bold,green.bold\" \"yarn watch-assets\" \"yarn watch-server\"",
+    "build-prod": "NODE_ENV=production webpack"
+  },
+  "dependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-transform-async-to-generator": "^7.8.3",
+    "@babel/preset-typescript": "^7.9.0",
+    "@fortawesome/fontawesome-free": "^5.13.0",
+    "babel-loader": "^8.1.0",
+    "concurrently": "^5.1.0",
+    "css-loader": "^3.5.2",
+    "cssnano": "^4.1.10",
+    "file-loader": "^6.0.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "postcss": "^7.0.27",
+    "postcss-loader": "^3.0.0",
+    "sass": "^1.26.3",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.1.4",
+    "terser-webpack-plugin": "^2.3.5",
+    "typeface-open-sans": "^0.0.75",
+    "typescript": "^3.8.3",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  }
+}
