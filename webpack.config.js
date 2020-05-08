@@ -1,24 +1,30 @@
+/**
+ * This file tells webpack to compile all Typescript and SCSS
+ * files into files that the browser can read.
+ */
+
 const MinifyCSSPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 
 const isProd = process.env.NODE_ENV === "production";
 const isDev = !isProd;
 
+// Common loaders for CSS and SCSS files.
 const cssLoaders = [
   isProd ? MinifyCSSPlugin.loader : "style-loader",
   {
     loader: "css-loader",
     options: {
-      importLoaders: 1
-    }
+      importLoaders: 1,
+    },
   },
   {
     loader: "postcss-loader",
     options: {
       ident: "postcss",
-      plugins: [require("cssnano")()]
-    }
-  }
+      plugins: [require("cssnano")()],
+    },
+  },
 ];
 
 module.exports = {
@@ -27,12 +33,12 @@ module.exports = {
 
   entry: {
     main: "./assets/js/main.ts",
-    index: "./assets/js/index.ts"
+    index: "./assets/js/index.ts",
   },
   output: {
     path: __dirname + "/static",
     filename: "[name].bundle.js",
-    publicPath: "/static/"
+    publicPath: "/static/",
   },
   optimization: {
     minimizer: [
@@ -41,17 +47,17 @@ module.exports = {
         parallel: true,
         sourceMap: isDev,
         terserOptions: {
-          ecma: 2016
-        }
-      })
-    ]
+          ecma: 2016,
+        },
+      }),
+    ],
   },
   plugins: [
     new MinifyCSSPlugin({
       path: __dirname + "/static",
       filename: "app.bundle.css",
-      publicPath: "/static/"
-    })
+      publicPath: "/static/",
+    }),
   ],
   module: {
     rules: [
@@ -63,35 +69,35 @@ module.exports = {
             loader: "babel-loader",
             options: {
               presets: ["@babel/preset-typescript"],
-              plugins: ["@babel/plugin-transform-async-to-generator"]
-            }
-          }
-        ]
+              plugins: ["@babel/plugin-transform-async-to-generator"],
+            },
+          },
+        ],
       },
       {
         test: /\.scss$/,
         use: cssLoaders.concat({
           loader: "sass-loader",
           options: {
-            sourceMap: isDev
-          }
-        })
+            sourceMap: isDev,
+          },
+        }),
       },
       {
         test: /\.css$/,
-        use: cssLoaders
+        use: cssLoaders,
       },
       {
         test: /\.(png|gif|jpe?g)$/,
         loader: "url-loader",
         options: {
-          limit: 8192
-        }
+          limit: 8192,
+        },
       },
       {
         test: /\.(woff|woff2|ttf|otf|svg|eot)$/,
-        loader: "file-loader"
-      }
-    ]
-  }
+        loader: "file-loader",
+      },
+    ],
+  },
 };

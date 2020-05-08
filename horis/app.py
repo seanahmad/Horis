@@ -1,3 +1,5 @@
+"""Defines the main application entrypoint for Horis."""
+
 from starlette.applications import Starlette
 from starlette.templating import Jinja2Templates
 from starlette.routing import Route, Mount
@@ -15,8 +17,9 @@ database = Database(config.HORSES_DB_URL)
 # Setup routes
 from horis import (
     routes as rs,
-)  # noqa, has to be here because routes use templates & database
+)  # noqa # has to be here because routes use templates & database
 
+# Routes listing
 routes = [
     Route("/", rs.IndexEndpoint, name="index"),
     Route("/horses.json", rs.complete_horses, name="complete_horses"),

@@ -17,6 +17,7 @@
     </head>
     <body>
         <div id="root">
+            {# Header #}
             <header class="header">
                 <div class="header__logo">
                     <a href="/">Horis</a>
@@ -26,7 +27,9 @@
                 </nav>
             </header>
 
+            {# Page content #}
             <section class="content">
+                {# The introduction div for horis. #}
                 <div class="intro">
                     <h1 class="intro__title">
                         Predict Horse Racing Results
@@ -37,6 +40,7 @@
                     </p>
                 </div>
 
+                {# Race information table #}
                 <h3 class="table-header">Enter Race Info</h3>
                 <div class="table">
                     <div class="table__row--header table__row">
@@ -49,10 +53,12 @@
                         <div>Won Last Three Races</div>
                     </div>
 
+                    {# By default, include 3 rows #}
                     {% include "partials/horse_row.html" %}
                     {% include "partials/horse_row.html" %}
                     {% include "partials/horse_row.html" %}
 
+                    {# Add row button #}
                     <div class="table__row--add table__row">
                         <button class="button">
                             <i class="fa fa-plus"></i> Add Another
@@ -63,6 +69,7 @@
                     Submit <i class="fa fa-arrow-right"></i>
                 </button>
 
+                {# Results div #}
                 <div class="results">
                     <h3 class="table-header">Results</h3>
                     <div class="table__row--header table__row">
@@ -76,17 +83,20 @@
 
                     <div class="table results__rows"></div>
 
+                    {# Clear button #}
                     <button class="clearresults">
                         Clear <i class="fa fa-broom"></i>
                     </button>
                 </div>
             </section>
 
+            {# Footer of the page #}
             <footer class="footer">
                 Copyright &copy; 2020 Efe Mert Demir.
             </footer>
         </div>
 
+        {# Empty horse row for javascript #}
         <template id="entry-row">
             {% include "partials/horse_row.html" %}
         </template>
